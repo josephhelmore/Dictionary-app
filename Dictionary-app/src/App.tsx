@@ -1,11 +1,13 @@
 import "./App.css";
-import { Header } from "./Components/Header";
+import { Header, AppDescription, UserBody } from "./Components";
 
 function App() {
   return (
-    <section className="bg-blue-500" >
+    <>
       <Header />
-    </section>
+      <AppDescription />
+      <UserBody/>
+    </>
   );
 }
 
