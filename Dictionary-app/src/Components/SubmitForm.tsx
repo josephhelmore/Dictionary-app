@@ -1,22 +1,29 @@
 import { useState } from "react";
 import fetchQuery from "../utils/FetchDefs";
 
-export const SubmitForm = () => {
-    const [newQuery, setNewQuery] = useState("")
 
 
-const onSubmit = async (event: React.FormEvent) => {
-event.preventDefault()
-  const data = await fetchQuery(newQuery)
-    console.log(data)
-}
+type SubmitFormProps = {
+  setNewData: React.Dispatch<React.SetStateAction<Record<string, any>[]>>;
+};
 
+export const SubmitForm = ({setNewData}: SubmitFormProps) => {
+  const [newQuery, setNewQuery] = useState("");
+
+  const onSubmit = async (event: React.FormEvent) => {
+    event.preventDefault();
+    const data = await fetchQuery(newQuery)
+    setNewData(data.data)
+  };
+
+
+  
   return (
     <>
       <form onSubmit={onSubmit}>
         <input
           value={newQuery}
-           onChange={(event) => setNewQuery(event.target.value)}
+          onChange={(event) => setNewQuery(event.target.value)}
           placeholder="Phrase or word"
           id="text-area"
           className="bg-blue-500"
