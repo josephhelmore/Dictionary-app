@@ -1,13 +1,12 @@
 import "./App.css";
-import { Header, AppDescription, UserBody } from "./Components";
+import { Header, UserBody } from "./Components";
 
 function App() {
   return (
-    <>
+    <div className="h-screen bg-slate-700 pt-6">
       <Header />
-      <AppDescription />
-      <UserBody/>
-    </>
+      <UserBody />
+    </div>
   );
 }
 

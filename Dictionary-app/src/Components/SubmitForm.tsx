@@ -8,6 +8,7 @@ type SubmitFormProps = {
 export const SubmitForm = ({ setNewData }: SubmitFormProps) => {
   const [newQuery, setNewQuery] = useState("");
   const [isValid, setIsValid] = useState(true);
+  const [placeholder, setPlaceholder] = useState("Phrase or word");
 
   const onSubmit = async (event: React.FormEvent) => {
     event.preventDefault();
@@ -24,32 +25,40 @@ export const SubmitForm = ({ setNewData }: SubmitFormProps) => {
 
   return (
     <>
-      <form onSubmit={onSubmit}>
+      <form
+        onSubmit={onSubmit}
+        className="flex flex-col text-center text-white font-mono justify-center bg-slate-600 m-8 rounded-lg py-8 shadow-xl/30"
+      >
         <input
           value={newQuery}
           onChange={(event) => {
             setNewQuery(event.target.value);
             setIsValid(true);
           }}
-          placeholder="Phrase or word"
+          placeholder={placeholder}
+          onFocus={() => setPlaceholder("")}
           id="text-area"
-          className={`bg-blue-500 border-2 rounded 
-      ${isValid ? "border-blue-500" : "border-red-500 bg-red-100"}`}
+          className={`bg-slate-400 border-2 rounded-xl h-25 mx-8 text-center 
+      ${isValid ? "border-slate-500" : "border-red-500"}`}
         />
-        <button type="submit" id="submit-button">
+        <button
+          type="submit"
+          className="bg-slate-300 rounded-xl h-10 mx-8 mt-8 text-center text-black active:bg-slate-500"
+        >
           Ask
         </button>
-      </form>
-      <button
+              <button
         type="button"
         onClick={async () => {
           const data = await fetchRandom();
           setNewData(data.data);
         }}
-        className="bg-blue-100"
+       className="bg-slate-300 rounded-xl h-10 mx-8 mt-8 text-center text-black active:bg-slate-500"
       >
         I'm Feeling Lucky
       </button>
+      </form>
+
     </>
   );
 };

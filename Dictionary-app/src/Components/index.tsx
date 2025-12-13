@@ -1,5 +1,4 @@
 export * from "./Header"
-export * from "./Description"
 export * from "./UserBody"
 export * from "./SubmitForm"
 export * from "./OutputDefenitions"
