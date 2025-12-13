@@ -4,8 +4,6 @@ import { useState } from "react";
 export const UserBody = () => {
 const [newData, setNewData] = useState<Record<string, any>[]>([]);
 
-  console.log(newData);
-
   return (
     <section>
       <p className="bg-blue-200">
