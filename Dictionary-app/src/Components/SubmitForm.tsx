@@ -1,5 +1,5 @@
 import { useState } from "react";
-import fetchQuery from "../utils/FetchDefs";
+import {fetchQuery, fetchRandom} from "../utils/FetchDefs";
 
 
 
@@ -16,6 +16,7 @@ export const SubmitForm = ({setNewData}: SubmitFormProps) => {
     setNewData(data.data)
   };
 
+  
 
   
   return (
@@ -32,6 +33,16 @@ export const SubmitForm = ({setNewData}: SubmitFormProps) => {
           Ask
         </button>
       </form>
+<button
+  type="button"
+  onClick={async () => {
+    const data = await fetchRandom();
+    setNewData(data.data);
+  }}
+  className="bg-blue-100"
+>
+  I'm Feeling Lucky
+</button>
     </>
   );
 };
