@@ -1,4 +1,4 @@
-export const OutputDefs = ({ newData }: { newData: Record<string, any>[] }) => {
+export const OutputDefs = ({ newData }) => {
   return (
     <section>
       {newData.map((definition, i) => (

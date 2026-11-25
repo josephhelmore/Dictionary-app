@@ -1,11 +1,9 @@
 import { useState } from "react";
 import { fetchQuery, fetchRandom } from "../utils/FetchDefs";
 
-type SubmitFormProps = {
-  setNewData: React.Dispatch<React.SetStateAction<Record<string, any>[]>>;
-};
 
-export const SubmitForm = ({ setNewData }: SubmitFormProps) => {
+
+export const QueryForm = ({ setNewData }) => {
   const [newQuery, setNewQuery] = useState("");
   const [isValid, setIsValid] = useState(true);
   const [placeholder, setPlaceholder] = useState("Phrase or word");
